@@ -1,0 +1,16 @@
+name = "pokedex-remix-cf"
+type = "javascript"
+
+account_id = "0344d4974e9e0e00d96d79bc2c1a3c2c"
+workers_dev = true
+
+[site]
+bucket = "./public"
+entry-point = "."
+
+[build]
+command = "npm run build:worker"
+watch_dir = "build/index.js"
+
+[build.upload]
+format="service-worker"
