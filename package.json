@@ -23,6 +23,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "remix": "^1.0.4",
+    "classnames": "^2.3.1",
     "tiny-invariant": "^1.2.0"
   },
   "devDependencies": {
@@ -32,7 +33,6 @@
     "@types/react": "^17.0.24",
     "@types/react-dom": "^17.0.9",
     "autoprefixer": "^10.4.0",
-    "classnames": "^2.3.1",
     "concurrently": "^6.5.0",
     "esbuild": "0.13.14",
     "miniflare": "2.0.0-next.3",

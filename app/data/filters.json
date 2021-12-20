@@ -1,0 +1,26 @@
+[
+  {
+    "component": "TextFilter",
+    "name": "name"
+  },
+  {
+    "component": "MultiSelectFilter",
+    "name": "generation"
+  },
+  {
+    "component": "MultiSelectFilter",
+    "name": "types"
+  },
+  {
+    "component": "ColorFilter",
+    "name": "color"
+  },
+  {
+    "component": "MinMaxSliderFilter",
+    "name": "height"
+  },
+  {
+    "component": "MinMaxSliderFilter",
+    "name": "weight"
+  }
+]
