@@ -2,7 +2,7 @@ import classNames from "classnames";
 import { startCase } from "lodash";
 import chroma from "chroma-js";
 import { Link, LoaderFunction, useLoaderData, useSearchParams } from "remix";
-import { getOptions, listPokemon } from "~/models/pokemon";
+import { getOptions, listPokemon, urlSearchParamsToObject } from "~/models/pokemon";
 import { DynamicJson } from "@hrgui/react-dynamic-json";
 import filterConfigs from "~/data/filters.json";
 import * as filterRegistry from "~/components/filters";
@@ -18,6 +18,7 @@ export const loader: LoaderFunction = async ({ request }) => {
     results,
     currentPage,
     maxPages,
+    filterValues: urlSearchParamsToObject(url.searchParams),
   };
 };
 
@@ -92,7 +93,11 @@ export function PokemonFilters({ options, value }: { options: any; value: any })
     <div className="w-full sm:w-64 flex-none mt-6 p-4 rounded bg-slate-100">
       <header className="flex justify-between">
         <div className="text-bold">Filters</div>
-        <div>Reset</div>
+        <div>
+          <Link to="/" className="text-blue-600 hover:text-blue-800 hover:bg-blue-50">
+            Reset
+          </Link>
+        </div>
       </header>
       {filterConfigs.map((filterConfig) => {
         return (
@@ -102,6 +107,7 @@ export function PokemonFilters({ options, value }: { options: any; value: any })
               component={filterConfig.component}
               props={{
                 ...filterConfig.props,
+                value: value?.[filterConfig.props.name],
                 options:
                   filterConfig.component !== "TextFilter" && getOptions(filterConfig.props.name),
               }}

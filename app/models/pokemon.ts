@@ -19,7 +19,7 @@ export async function getPokemonSpeciesById(id: string): Promise<PokemonSpecies>
   return pokemon;
 }
 
-function urlSearchParamsToObject(urlSearchParams: URLSearchParams) {
+export function urlSearchParamsToObject(urlSearchParams: URLSearchParams) {
   const result: { [name: string]: string[] } = {};
   const entries = urlSearchParams.entries();
 
@@ -38,6 +38,10 @@ function filterPokemon(list: any[], filters: { [name: string]: string[] }) {
 
   for (const [filterKey, filterValues] of filterEntries) {
     list = list.filter((item) => {
+      if (Array.isArray(item[filterKey])) {
+        return item[filterKey].some((i: string) => filterValues.includes(i));
+      }
+
       return item[filterKey] === undefined || filterValues.includes(item[filterKey]);
     });
   }
@@ -47,10 +51,7 @@ function filterPokemon(list: any[], filters: { [name: string]: string[] }) {
 export function listPokemon(page: number, filterParams: URLSearchParams) {
   const filters = urlSearchParamsToObject(filterParams);
   let _list = filterPokemon(list, filters);
-  console.log("HG", _list);
-
   const pages = chunk(_list, 12);
-
   return {
     results: pages[page],
     maxPages: pages.length,
