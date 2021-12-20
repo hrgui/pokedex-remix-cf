@@ -68,7 +68,7 @@ function Layout({ children }: React.PropsWithChildren<{}>) {
       <header className=" bg-red-300">
         <div className="container mx-auto">
           <nav aria-label="Main navigation" className="flex">
-            <Link className="text-white hover:text-neutral-200 p-4 bg-slate-700" to="/pokemon/1">
+            <Link className="text-white hover:text-neutral-200 p-4 bg-slate-700" to="/">
               Pokedex
             </Link>
           </nav>

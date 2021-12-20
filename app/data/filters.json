@@ -1,26 +1,38 @@
 [
   {
     "component": "TextFilter",
-    "name": "name"
+    "props": {
+      "name": "name"
+    }
   },
   {
     "component": "MultiSelectFilter",
-    "name": "generation"
+    "props": {
+      "name": "generation"
+    }
   },
   {
     "component": "MultiSelectFilter",
-    "name": "types"
+    "props": {
+      "name": "types"
+    }
   },
   {
     "component": "ColorFilter",
-    "name": "color"
+    "props": {
+      "name": "color"
+    }
   },
   {
     "component": "MinMaxSliderFilter",
-    "name": "height"
+    "props": {
+      "name": "height"
+    }
   },
   {
     "component": "MinMaxSliderFilter",
-    "name": "weight"
+    "props": {
+      "name": "weight"
+    }
   }
 ]
