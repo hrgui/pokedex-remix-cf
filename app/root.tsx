@@ -64,23 +64,22 @@ function Document({ children, title }: { children: React.ReactNode; title?: stri
 
 function Layout({ children }: React.PropsWithChildren<{}>) {
   return (
-    <div className="container mx-auto">
-      <header className="remix-app__header">
-        <div className="remix-app__header-content">
-          <nav aria-label="Main navigation" className="flex justify-around">
-            <Link
-              className="text-blue-600 hover:text-blue-800 hover:bg-blue-50 p-4"
-              to="/pokemon/1"
-            >
+    <>
+      <header className=" bg-red-300">
+        <div className="container mx-auto">
+          <nav aria-label="Main navigation" className="flex">
+            <Link className="text-white hover:text-neutral-200 p-4 bg-slate-700" to="/pokemon/1">
               Pokedex
             </Link>
           </nav>
         </div>
       </header>
-      <div className="remix-app__main">
-        <div className="remix-app__main-content">{children}</div>
+      <div className="container mx-auto">
+        <div className="remix-app__main">
+          <div className="remix-app__main-content">{children}</div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
